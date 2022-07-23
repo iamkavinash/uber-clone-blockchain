@@ -6,8 +6,8 @@ export const UberContext = createContext()
 
 
 export const UberProvider = ({children}) => {
-    const [pickup, setPickup] = useState('')
-    const [dropoff, setDropoff] = useState('')
+    const [pickup, setPickup] = useState()
+    const [dropoff, setDropoff] = useState()
     const [pickupCoordinates, setPickupCoordinates] = useState()
     const [dropoffCoordinates, setDropoffCoordinates] = useState()
 
@@ -29,7 +29,8 @@ const createLocationCoordinatePromise = (locationName,locationType) => {
         })
 
         const data = await response.json()
-        console.log(data.data)
+        
+      
 
         if (data.message = 'success') {
             switch(locationType) {
@@ -62,7 +63,7 @@ const createLocationCoordinatePromise = (locationName,locationType) => {
             ])
         })()
 
-        
+
     },[pickup,dropoff])
 
 

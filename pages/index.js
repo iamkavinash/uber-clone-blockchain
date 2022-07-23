@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import 'mapbox-gl/dist/mapbox-gl.css';
 import Navbar  from '../components/Navbar'
 import Map from '../components/Map'
 import LocationSelector from '../components/LocationSelector'
