@@ -5,6 +5,8 @@ import UberBlackSUV from '../assets/uberBlackSuv.png'
 import UberX from '../assets/uberX.png'
 import UberXL from '../assets/uberXL.png'
 import MATIC from '../assets/matic.png'
+import { UberContext } from '../context/uberContext'
+
 
 const style = {
   wrapper: `h-full flex flex-col`,
@@ -32,6 +34,11 @@ const style = {
 const basePrice = 2358
 export default function RideSelector() {
 
+
+
+  const { selectedRide, setSelectedRide, setPrice } =
+    React.useContext(UberContext)
+
   const [carList, setCarList] = React.useState([])
 
 
@@ -42,10 +49,10 @@ export default function RideSelector() {
         const response = await fetch('/api/db/getRideTypes')
 
         const data = await response.json()
-        // console.log(data)
+        console.log(data.data)
         setCarList(data.data)
         // console.log(data.data)
-        // setSelectedRide(data.data[0])
+        setSelectedRide(data.data[0])
       } catch (error) {
         console.error(error)
       }
@@ -64,7 +71,18 @@ export default function RideSelector() {
       <div className={style.carList}>
 
       {carList.map((car,i) => (
-          <div key={i} className={style.car}> 
+        <div
+            key={i}
+            className={`${
+              selectedRide.service === car.service
+                ? style.selectedCar
+                : style.car
+            }`}
+            onClick={() => {
+              setSelectedRide(car)
+              setPrice(((basePrice / 10 ** 5) * car.priceMultiplier).toFixed(5))
+            }}
+          >
 
           <Image
 

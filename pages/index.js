@@ -6,7 +6,7 @@ import Navbar  from '../components/Navbar'
 import Map from '../components/Map'
 import LocationSelector from '../components/LocationSelector'
 import Confirm from '../components/Confirm'
-Confirm
+
 
 
 const style = {
