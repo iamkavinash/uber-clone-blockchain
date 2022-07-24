@@ -10,7 +10,7 @@ const token = process.env.MAPBOX_API_TOKEN
 
 
 const getDuration = async (req, res) => {
-    const mapboxUrl = `${process.env.MAPBOX_PLACES_DURATION_URL}/${req.body.pickupCoordinates};${req.body.dropoffCoordinates}.json?access_token=${token}`
+    const mapboxUrl = `${MAPBOX_PLACES_DURATION_URL}/${req.body.pickupCoordinates};${req.body.dropoffCoordinates}.json?access_token=${token}`
     console.log(mapboxUrl)
   
     try {
