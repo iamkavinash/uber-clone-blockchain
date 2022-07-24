@@ -1,7 +1,7 @@
 
 pipeline {
     agent any
-    
+
      parameters {
     string(name: 'DOCKER_IMAGE', defaultValue: 'si3mshady/blockchain-uber-clone')
   }
@@ -20,11 +20,14 @@ pipeline {
               sh('docker build . -t ${DOCKER_IMAGE}') // sudo chmod 777 /var/run/docker.sock
               sh('docker push  ${DOCKER_IMAGE}')
 
+              sh('terraform plan')
+
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
+                sh('terraform plan')
                
                 
             }
@@ -32,6 +35,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                sh('terraform apply --auto-approve')
             }
         }
     }
