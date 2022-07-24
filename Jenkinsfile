@@ -10,8 +10,9 @@ pipeline {
             steps {
                 echo 'Building docker image.'
 
-              sh('sudo -n docker build . -t ${DOCKER_IMAGE}')
-              sh('sudo -n docker push  ${DOCKER_IMAGE}')
+              sh('docker build . -t ${DOCKER_IMAGE}')
+              sh('docker push  ${DOCKER_IMAGE}')
+            //   https://medium.com/fusionqa/how-to-run-jenkins-using-the-root-user-in-linux-centos-79d96749ca5a
 
 
             }
@@ -31,3 +32,4 @@ pipeline {
     }
 }
             
+            chown -R root:root /var/lib/jenkins chown -R root:root /var/cache/jenkins chown -R root:root /var/log/jenkins
