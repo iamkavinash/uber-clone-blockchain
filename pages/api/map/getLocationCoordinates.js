@@ -2,8 +2,6 @@ const MAPBOX_PLACES_API_URL = "https://api.mapbox.com/geocoding/v5/mapbox.places
 
 // const project_Id = '9ktmfl6s'
 
-MAPBOX_API_TOKEN
-
 
 // const token = 'pk.eyJ1IjoiZWxnZW5lc2lzYmxvY2siLCJhIjoiY2w1djVpOWxpMDJidTNscnQ0bHhxaDk2bCJ9.jsa850TKoWTXxuPKBxaF9A'
 
