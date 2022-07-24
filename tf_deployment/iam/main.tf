@@ -32,7 +32,7 @@ EOF
 
 resource "aws_iam_policy_attachment" "new_relic_monitoring" {
   name       = "list s3 buckets policy to role"
-  roles      = ["${aws_iam_role.pnew_relic_metrics.name}"]
+  roles      = ["${aws_iam_role.new_relic_metrics.name}"]
   policy_arn = "arn:aws:iam::aws:policy/ReadOnlyAccess"
  
 }
