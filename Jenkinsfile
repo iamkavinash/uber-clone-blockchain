@@ -7,7 +7,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh("terraform --version && mkdir tf_deployments || true ")
-                sh('node -e "console.log('Running Node.js ' + process.version)"')
+                sh('node --version')
                 shell(''''
                 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash &&
                 . ~/.nvm/nvm.sh &&
