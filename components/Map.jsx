@@ -34,18 +34,18 @@ React.useEffect(() => {
     
     if (pickupCoordinates) {
       console.log('we have pickup coordinates in Map.jsx', pickupCoordinates)
-      addToMap(map,pickupCoordinates)
+      addToMap(map, [-74.0060152,40.7127281])
     }
     
     if (dropoffCoordinates) {
       console.log('we have dropoff coordinates in Map.jsx', dropoffCoordinates)
-      addToMap(map,dropoffCoordinates)
+      addToMap(map,[-96.7968559,32.7762719])
     }
     
     if (pickupCoordinates && dropoffCoordinates) {
       console.log('we have both pickup and dropoff coordinates in Map.jsx')
 
-    map.fitBounds([ [-73.989308,40.741895],[-73.989308,40.741895]], {
+    map.fitBounds([ [-74.0060152,40.7127281],[-96.7968559,32.7762719]], {
       padding: 400
     })
 
@@ -61,7 +61,7 @@ const addToMap = (map, coordinates) => {
 
   // const ll = new mapboxgl.LngLat(coordinates);
 
-  new mapboxgl.Marker().setLngLat([-73.989308,40.741895]).addTo(map)
+  new mapboxgl.Marker().setLngLat(coordinates).addTo(map)
 
 
   
