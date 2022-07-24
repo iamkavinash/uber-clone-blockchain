@@ -61,7 +61,7 @@ const addToMap = (map, coordinates) => {
 
   // const ll = new mapboxgl.LngLat(coordinates);
 
-  coordinates ? new mapboxgl.Marker().setLngLat(coordinates).addTo(map) : new mapboxgl.Marker().setLngLat([-73.989308,40.741895]).addTo(map)
+  new mapboxgl.Marker().setLngLat([-73.989308,40.741895]).addTo(map)
 
 
   
