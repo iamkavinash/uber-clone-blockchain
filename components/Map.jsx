@@ -57,19 +57,14 @@ React.useEffect(() => {
 )
 
 
-const addToMap = (map, coordinates=[]) => {
+const addToMap = (map, coordinates) => {
 
   // const ll = new mapboxgl.LngLat(coordinates);
 
-  if (coordinates === undefined) {
-
-    const marker1 = new mapboxgl.Marker().setLngLat([-73.989308,40.741895]).addTo(map)
-  } else {
-    const marker1 = new mapboxgl.Marker().setLngLat(coordinates).addTo(map)
-  }
+  coordinates ? new mapboxgl.Marker().setLngLat(coordinates).addTo(map) : new mapboxgl.Marker().setLngLat([-73.989308,40.741895]).addTo(map)
 
 
- 
+  
 
 }
 
