@@ -27,7 +27,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh('terraform plan')
+                sh('cd tf_deployment/ && terraform plan')
                
                 
             }
@@ -35,7 +35,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh('terraform apply --auto-approve')
+                sh('cd tf_deployment/ && terraform apply --auto-approve')
             }
         }
     }
