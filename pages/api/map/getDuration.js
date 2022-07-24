@@ -4,13 +4,13 @@ const project_Id = '9ktmfl6s'
 
 // const token = 'pk.eyJ1IjoiZWxnZW5lc2lzYmxvY2siLCJhIjoiY2w1djVpOWxpMDJidTNscnQ0bHhxaDk2bCJ9.jsa850TKoWTXxuPKBxaF9A'
 
-const token = process.env.MAPBOX_API_TOKEN
+const token = process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN
 // const mapboxUrl = `${process.env.MAPBOX_DIRECTIONS_API_URL}/${req.body.pickupCoordinates};${req.body.dropoffCoordinates}.json?access_token=${process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}`
 
 
 
 const getDuration = async (req, res) => {
-    const mapboxUrl = `${MAPBOX_PLACES_DURATION_URL}/${req.body.pickupCoordinates};${req.body.dropoffCoordinates}.json?access_token=${token}`
+    const mapboxUrl = `${process.env.NEXT_PUBLIC_MAPBOX_PLACES_DURATION_URL}/${req.body.pickupCoordinates};${req.body.dropoffCoordinates}.json?access_token=${token}`
     console.log(mapboxUrl)
   
     try {

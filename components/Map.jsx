@@ -8,9 +8,9 @@ const style = {
 }
 export default function Map() {
 
-const access_token = 'pk.eyJ1IjoiZWxnZW5lc2lzYmxvY2siLCJhIjoiY2w1djVpOWxpMDJidTNscnQ0bHhxaDk2bCJ9.jsa850TKoWTXxuPKBxaF9A'
+// const access_token = 'pk.eyJ1IjoiZWxnZW5lc2lzYmxvY2siLCJhIjoiY2w1djVpOWxpMDJidTNscnQ0bHhxaDk2bCJ9.jsa850TKoWTXxuPKBxaF9A'
 
-mapboxgl.accessToken = access_token
+mapboxgl.accessToken = process.env.NEXT_PUBLIC
 
 
 const {pickupCoordinates, dropoffCoordinates} = React.useContext(UberContext)
