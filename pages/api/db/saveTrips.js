@@ -1,4 +1,20 @@
-import { client } from '../../../sanity/sanity'
+// import { client } from '../../../sanity/sanity'
+
+
+import sanityClient from '@sanity/client'
+
+const project_Id = '9ktmfl6s'
+// const project_Id = process.env.SANITY_PROJECT_ID
+const token = 'skKbKoJXIPPag0MX0VW1As3XnSX12tXEknhT4tuqKznBo9ldznTyAhlkl773tdyPqBNjXBh1jbB7XHbiZt6esjw0IRptM2ASsArBwSHBra5STAdxuy27IWYTM8Itiw3ZMHHCV5keTxVDoJCpphOuCpL9dfiGlcEmPVllpxjHSRu4yRKuafng'
+// const token = process.env.SANITY_TOKEN
+export const client = sanityClient({
+    projectId: project_Id,
+    dataset: 'production',
+    apiVersion: 'v1',
+    token: token,
+    useCdn: false
+})
+
 
 const saveTrips = async (req, res) => {
     console.log('save trips triggered')
