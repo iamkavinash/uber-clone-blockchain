@@ -21,6 +21,7 @@ COPY studio ./studio
 COPY styles ./styles
 COPY tailwind.config.js ./tailwind.config.js 
 COPY postcss.config.js ./postcss.config.js
+COPY next.config.js ./next.config.js
 
 ARG SANITY_TOKEN=skKbKoJXIPPag0MX0VW1As3XnSX12tXEknhT4tuqKznBo9ldznTyAhlkl773tdyPqBNjXBh1jbB7XHbiZt6esjw0IRptM2ASsArBwSHBra5STAdxuy27IWYTM8Itiw3ZMHHCV5keTxVDoJCpphOuCpL9dfiGlcEmPVllpxjHSRu4yRKuafng
 ARG SANITY_PROJECT_ID=9ktmfl6s
