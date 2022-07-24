@@ -85,6 +85,32 @@ export const UberProvider = ({children}) => {
       }, [currentAccount])
 
 
+      useEffect(() => {
+        if (!pickupCoordinates || !dropoffCoordinates) return
+        ;(async () => {
+          try {
+            const response = await fetch('/api/map/getDuration', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                pickupCoordinates: `${pickupCoordinates[0]},${pickupCoordinates[1]}`,
+                dropoffCoordinates: `${dropoffCoordinates[0]},${dropoffCoordinates[1]}`,
+              }),
+            })
+    
+            const data = await response.json()
+            console.log('Data from RideSelector',data)
+            setBasePrice(Math.round(await data.data))
+          } catch (error) {
+            console.error(error)
+          }
+        })()
+      }, [pickupCoordinates, dropoffCoordinates])
+
+
+
 const createLocationCoordinatePromise = (locationName,locationType) => {
 
     console.log('Trying to execute create Location Coordinate Promise')
@@ -160,7 +186,7 @@ const createLocationCoordinatePromise = (locationName,locationType) => {
 
     return (
         <UberContext.Provider value={{pickup,dropoff, 
-         currentUser, currentAccount,
+         currentUser, currentAccount, basePrice,metamask,
           connectWallet,pickupCoordinates, setPrice,
           setDropoff, selectedRide, price, setSelectedRide,
            setPickup,dropoffCoordinates}}>{children}</UberContext.Provider>

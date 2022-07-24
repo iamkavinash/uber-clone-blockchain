@@ -31,13 +31,16 @@ const style = {
 //   {name: 'Uber XL', icon: UberXL, priceMultiplier: 1.8}, 
 // ]
 
-const basePrice = 2358
+// const basePrice = 2358
 export default function RideSelector() {
 
 
 
-  const { selectedRide, setSelectedRide, setPrice } =
+  const { selectedRide, setSelectedRide, setBasePrice, setPrice, basePrice } =
     React.useContext(UberContext)
+
+
+    console.log(basePrice)
 
   const [carList, setCarList] = React.useState([])
 
@@ -101,7 +104,7 @@ export default function RideSelector() {
            <div className={style.priceContainer}>  
               <div className={style.price}>
 
-              {((basePrice/ 10 **5) * car.priceMultiplier).toFixed(4)}
+              {((basePrice/ 1000 **2) * car.priceMultiplier).toFixed(4)}
               
                </div>
 <div className={style.matic} > <Image  src={MATIC} height={25} width={40} /> </div>

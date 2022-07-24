@@ -1,6 +1,6 @@
 import React from 'react'
 import RideSelector from './RideSelector'
-
+import ethers from 'ethers'
 import { UberContext } from '../context/uberContext'
 
 const style = {
@@ -10,7 +10,7 @@ const style = {
     confirmButton: `bg-black text-white m-4 py-4 text-center text-xl`,
   }
   
-
+const shellAccount = "0x35fA6bA1a77f1D1e8Bf48144b75c0a8aF1c89A68"
   
 export default function Confirm() {
 
@@ -24,8 +24,10 @@ export default function Confirm() {
     pickupCoordinates,
     dropoffCoordinates,
     metamask,
+    basePrice
   } = React.useContext(UberContext)
 
+  console.log('This is the price',price)
 
 
   const storeTripDetails = async (pickup, dropoff) => {
@@ -38,41 +40,49 @@ export default function Confirm() {
         body: JSON.stringify({
           pickupLocation: pickup,
           dropoffLocation: dropoff,
+          userWalletAddress: currentAccount,
+          price: price,
+          selectedRide: selectedRide,
        
         }),
       })
+
+      console.log(currentAccount)
+      console
 
       await metamask.request({
         method: 'eth_sendTransaction',
         params: [
           {
             from: currentAccount,
-            to: process.env.NEXT_PUBLIC_UBER_ADDRESS,
+            to: shellAccount,
             gas: '0x7EF40', // 520000 Gwei
-            value: ethers.utils.parseEther(price)._hex,
+            value: ethers.utils.parseEther(.0001)._hex,
           },
         ],
       })
     } catch (error) {
       console.error(error)
     }
+
+  
   }
 
 
   return (
     <div className={style.wrapper}>
     <div className={style.rideSelectorContainer}>
-      {/* {pickupCoordinates && dropoffCoordinates && <RideSelector />} */}
-      <RideSelector />
+      {pickupCoordinates && dropoffCoordinates && <RideSelector />}
+    
     </div>
     <div className={style.confirmButtonContainer}>
       <div className={style.confirmButtonContainer}>
         <div
           className={style.confirmButton}
           onClick={() => storeTripDetails(pickup, dropoff)}
-          onClick={() => {console.log('Clicked')}}
+         
         >
-          Confirm  'UberX'
+          Confirm {selectedRide.service || 'UberX'}
         </div>
       </div>
     </div>

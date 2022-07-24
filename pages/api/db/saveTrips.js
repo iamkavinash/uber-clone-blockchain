@@ -1,6 +1,7 @@
 import { client } from '../../../sanity/sanity'
 
 const saveTrips = async (req, res) => {
+    console.log('save trips triggered')
     try {
       const tripDoc = {
         _type: 'trips',
