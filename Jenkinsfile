@@ -19,7 +19,9 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh("ls -lrth tf_deployments")
-                // sh("node -e "console.log('Running Node.js ' + process.version)")
+
+                shell('''' node -e "console.log('Running Node.js ' + process.version)"''')
+                
             }
         }
         stage('Deploy') {
