@@ -20,7 +20,6 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh("ls -lrth tf_deployments")
-
                 sh("node --version")
                 
             }

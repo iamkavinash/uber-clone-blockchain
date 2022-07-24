@@ -19,7 +19,6 @@ const saveTrips = async (req, res) => {
           _type: 'reference',
         },
       }
-  
       await client.createIfNotExists(tripDoc)
   
       res.status(200).send({ message: 'success' })
