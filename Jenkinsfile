@@ -5,14 +5,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
-                sh("terraform --version && mkdir tf_deployments || true ")
-                sh('node --version')
-                shell(''''
-                curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash &&
-                . ~/.nvm/nvm.sh &&
-                nvm install --lts
-                ''')
+                echo 'Building docker image.'
+
+              sh('docker build Dockerfile -t si3mshady/blockchain-uber-clone')
+              
 
             }
         }

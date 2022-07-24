@@ -1,4 +1,4 @@
-const MAPBOX_PLACES_API_URL = "https://api.mapbox.com/directions/v5/mapbox/driving"
+const MAPBOX_PLACES_DURATION_URL = "https://api.mapbox.com/directions/v5/mapbox/driving"
 
 const project_Id = '9ktmfl6s'
 
@@ -10,7 +10,7 @@ const token = 'pk.eyJ1IjoiZWxnZW5lc2lzYmxvY2siLCJhIjoiY2w1djVpOWxpMDJidTNscnQ0bH
 
 
 const getDuration = async (req, res) => {
-    const mapboxUrl = `${MAPBOX_PLACES_API_URL}/${req.body.pickupCoordinates};${req.body.dropoffCoordinates}.json?access_token=${token}`
+    const mapboxUrl = `${MAPBOX_PLACES_DURATION_URL}/${req.body.pickupCoordinates};${req.body.dropoffCoordinates}.json?access_token=${token}`
     console.log(mapboxUrl)
   
     try {
