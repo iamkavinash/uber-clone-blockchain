@@ -14,7 +14,7 @@ const getLocationCoordinates = async (req,res) => {
   const mapboxUrl = `${MAPBOX_PLACES_API_URL}/${req.body.location}.json?access_token=${token}`
 
 //   `${process.env.MAPBOX_PLACES_API_URL}/${req.body.location}.json?access_token=${process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}`
-  console.log(mapboxUrl)
+  console.log('Inside getlocation coords',mapboxUrl)
 
     try {
         const response = await fetch(mapboxUrl)
