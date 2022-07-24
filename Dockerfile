@@ -10,6 +10,7 @@ FROM node:16-bullseye as builder
 WORKDIR /app
 
 COPY --from=node_modules /app/node_modules ./node_modules
+COPY package.json package.json
 COPY assets  ./assets
 COPY images ./images
 COPY components ./components
