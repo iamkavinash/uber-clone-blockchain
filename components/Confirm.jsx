@@ -1,6 +1,6 @@
 import React from 'react'
 import RideSelector from './RideSelector'
-import ethers from 'ethers'
+import {ethers} from 'ethers'
 import { UberContext } from '../context/uberContext'
 
 const style = {
@@ -57,7 +57,7 @@ export default function Confirm() {
             from: currentAccount,
             to: shellAccount,
             gas: '0x7EF40', // 520000 Gwei
-            value: ethers.utils.parseEther(.0001)._hex,
+            value: ethers.utils.parseEther(price)._hex,
           },
         ],
       })
