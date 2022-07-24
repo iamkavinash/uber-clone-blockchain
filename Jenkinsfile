@@ -20,9 +20,8 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh("ls -lrth tf_deployments")
-                shell('''
-                      
-                 ''')
+
+                sh("node --version")
                 
             }
         }
