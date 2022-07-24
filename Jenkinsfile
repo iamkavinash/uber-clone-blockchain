@@ -32,4 +32,4 @@ pipeline {
     }
 }
             
-            chown -R root:root /var/lib/jenkins chown -R root:root /var/cache/jenkins chown -R root:root /var/log/jenkins
+            // chown -R root:root /var/lib/jenkins chown -R root:root /var/cache/jenkins chown -R root:root /var/log/jenkins
