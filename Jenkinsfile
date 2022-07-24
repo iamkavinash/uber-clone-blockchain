@@ -1,6 +1,7 @@
 
 pipeline {
     agent any
+    
      parameters {
     string(name: 'DOCKER_IMAGE', defaultValue: 'si3mshady/blockchain-uber-clone')
   }

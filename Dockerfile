@@ -36,4 +36,4 @@ ENV MAPBOX_API_TOKEN {MAPBOX_API_TOKEN}
 
 EXPOSE 80
 
-CMD [ "next", "start" ]
+CMD [ "yarn", "dev" ]
