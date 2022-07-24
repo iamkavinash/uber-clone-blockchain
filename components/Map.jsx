@@ -45,7 +45,7 @@ React.useEffect(() => {
     if (pickupCoordinates && dropoffCoordinates) {
       console.log('we have both pickup and dropoff coordinates in Map.jsx')
 
-    map.fitBounds([dropoffCoordinates,pickupCoordinates], {
+    map.fitBounds([ [-73.989308,40.741895],[-73.989308,40.741895]], {
       padding: 400
     })
 
