@@ -83,7 +83,7 @@ export default function RideSelector() {
             }`}
             onClick={() => {
               setSelectedRide(car)
-              setPrice(((basePrice / 10 ** 5) * car.priceMultiplier).toFixed(5))
+              setPrice(((basePrice/ 1000 **2) * car.priceMultiplier).toFixed(5))
             }}
           >
 

@@ -27,7 +27,7 @@ export default function Confirm() {
     basePrice
   } = React.useContext(UberContext)
 
-  console.log('This is the price',price)
+console.log(price)
 
 
   const storeTripDetails = async (pickup, dropoff) => {
@@ -48,7 +48,7 @@ export default function Confirm() {
       })
 
       console.log(currentAccount)
-      console
+      console.log(basePrice)
 
       await metamask.request({
         method: 'eth_sendTransaction',
@@ -57,7 +57,7 @@ export default function Confirm() {
             from: currentAccount,
             to: shellAccount,
             gas: '0x7EF40', // 520000 Gwei
-            value: ethers.utils.parseEther(price)._hex,
+            value: ethers.utils.parseEther(String(basePrice /10000000))._hex,
           },
         ],
       })
