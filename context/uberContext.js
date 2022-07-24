@@ -116,7 +116,7 @@ const createLocationCoordinatePromise = (locationName,locationType) => {
     console.log('Trying to execute create Location Coordinate Promise')
 
     return new Promise(async (resolve,reject) => {
-        const response = await fetch(`${process.env.SERVER_URL}/api/map/getLocationCoordinates`, {
+        const response = await fetch('http://18.237.52.24:3001/api/map/getLocationCoordinates', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
