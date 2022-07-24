@@ -10,7 +10,7 @@ export default function Map() {
 
 // const access_token = 'pk.eyJ1IjoiZWxnZW5lc2lzYmxvY2siLCJhIjoiY2w1djVpOWxpMDJidTNscnQ0bHhxaDk2bCJ9.jsa850TKoWTXxuPKBxaF9A'
 
-mapboxgl.accessToken = process.env.NEXT_PUBLIC
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_API_TOKEN
 
 
 const {pickupCoordinates, dropoffCoordinates} = React.useContext(UberContext)
