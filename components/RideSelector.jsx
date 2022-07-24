@@ -49,7 +49,7 @@ export default function RideSelector() {
   React.useEffect(() => {
     (async () => {
       try {
-        const response = await fetch('/api/db/getRideTypes')
+        const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/db/getRideTypes`)
 
         const data = await response.json()
         console.log(data.data)
