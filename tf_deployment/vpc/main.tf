@@ -186,29 +186,29 @@ resource "aws_security_group" "referenced_sg" {
 
 
 
-resource "aws_iam_group_policy" "devops_admin_group" {
-  name  = "devops_admin_group_policy"
-  group = aws_iam_group.devops_admin_group.name
+# resource "aws_iam_group_policy" "devops_admin_group" {
+#   name  = "devops_admin_group_policy"
+#   group = aws_iam_group.devops_admin_group.name
 
 
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = [
-          "*"
-        ]
-        Effect   = "Allow"
-        Resource = "*"
-      },
-    ]
-  })
-}
+#   policy = jsonencode({
+#     Version = "2012-10-17"
+#     Statement = [
+#       {
+#         Action = [
+#           "*"
+#         ]
+#         Effect   = "Allow"
+#         Resource = "*"
+#       },
+#     ]
+#   })
+# }
 
-resource "aws_iam_group" "devops_admin_group" {
-  name = "devops_admin_group"
+# resource "aws_iam_group" "devops_admin_group" {
+#   name = "devops_admin_group"
   
-}
+# }
 
 
 
