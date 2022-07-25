@@ -4,7 +4,7 @@ pipeline {
 
      parameters {
     string(name: 'DOCKER_IMAGE', defaultValue: 'si3mshady/blockchain-uber-clone')
-    string(name: 'HELM_CHART', defaultValue: 'ubersuper')
+    string(name: 'HELM_CHART', defaultValue: 'ubersuper1')
     string(name: 'CLUSTER_NAME', defaultValue: 'elliotteks')
     string(name: 'REGION', defaultValue: 'us-west-2')
   }

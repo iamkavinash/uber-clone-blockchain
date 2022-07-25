@@ -1,35 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eluber
+  name: eks-uber-bc
 spec:
   replicas: 2
   selector:
     matchLabels:
-      si3mshady: eluber
+      si3mshady: eks-uber-bc
   template:
     metadata:
       labels:
-        si3mshady: eluber
+        si3mshady: eks-uber-bc
     spec:
       containers:
-      - name: eluber
+      - name: eks-uber-bc
         image: si3mshady/blockchain-uber-clone  
         ports:
-        - containerPort: 3001
-          hostPort: 3001
-
+        - containerPort: 3000
+          hostPort: 3000
 --- 
 apiVersion: v1
 kind: Service
 metadata: 
-  name: eluber
-
+  name: eks-uber-bc
 spec: 
   ports: 
-    - port: 3001
-      targetPort: 3001     
-    
+    - port: 3000
+      targetPort: 3000     
   selector: 
-    si3mshady: eluber
+    si3mshady: eks-uber-bc
   type: LoadBalancer
