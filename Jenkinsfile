@@ -14,7 +14,6 @@ pipeline {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
 	}
 
-
     stages {
         stage('Build') {
             steps {
