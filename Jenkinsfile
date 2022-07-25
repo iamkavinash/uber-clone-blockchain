@@ -23,16 +23,18 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Test with TF plan...'
-                sh('cd tf_deployment/ && terraform init && terraform plan')
+                // echo 'Test with TF plan...'
+                // sh('cd tf_deployment/ && terraform init && terraform plan')
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
-                sh('cd tf_deployment/ && terraform apply --auto-approve')
-                sh('aws eks update-kubeconfig --name ${CLUSTER_NAME} --region ${REGION}')
-                sh('helm install ${HELM_CHART} ${HELM_CHART}')
+                // echo 'Deploying....'
+                // sh('cd tf_deployment/ && terraform apply --auto-approve')
+                // sh('aws eks update-kubeconfig --name ${CLUSTER_NAME} --region ${REGION}')
+                // sh('helm install ${HELM_CHART} ${HELM_CHART}')
+                 sh('helm uninstall ${HELM_CHART} ${HELM_CHART}')
+                 sh('helm install ${HELM_CHART} ${HELM_CHART}')
             }
         }
     }
