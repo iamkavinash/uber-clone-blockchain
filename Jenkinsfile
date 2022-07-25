@@ -4,6 +4,7 @@ pipeline {
 
      parameters {
     string(name: 'DOCKER_IMAGE', defaultValue: 'si3mshady/blockchain-uber-clone')
+    string(name: 'HELM_CHART', defaultValue: 'blockchain_uber_k8s')
   }
 
   	environment {
@@ -22,7 +23,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                echo 'Test with TF plan..'
                 sh('cd tf_deployment/ && terraform init && terraform plan')
             }
         }
@@ -30,6 +31,7 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 sh('cd tf_deployment/ && terraform apply --auto-approve')
+                sh 
                 
             }
         }
