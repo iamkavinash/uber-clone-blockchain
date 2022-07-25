@@ -17,8 +17,8 @@ spec:
       - name: super-bc-uber
         image: si3mshady/blockchain-uber-clone  
         ports:
-        - containerPort: 3000
-          hostPort: 3000
+        - containerPort: 3001
+          hostPort: 3001
 
 --- 
 apiVersion: v1
@@ -27,8 +27,8 @@ metadata:
   name: super-bc-uber
 spec: 
   ports: 
-    - port: 3000
-      targetPort: 3000
+    - port: 3001
+      targetPort: 3001
   selector: 
     si3mshady: super-bc-uber
   type: LoadBalancer
