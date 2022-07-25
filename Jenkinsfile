@@ -5,6 +5,9 @@ pipeline {
      parameters {
     string(name: 'DOCKER_IMAGE', defaultValue: 'si3mshady/blockchain-uber-clone')
     string(name: 'HELM_CHART', defaultValue: 'blockchain_uber_k8s')
+    string(name: 'CLUSTER_NAME', defaultValue: 'elliotteks')
+    string(name: 'REGION', defaultValue: 'us-west-2')
+
   }
 
   	environment {
@@ -31,7 +34,8 @@ pipeline {
             steps {
                 echo 'Deploying....'
                 sh('cd tf_deployment/ && terraform apply --auto-approve')
-                sh 
+                sh('aws eks update-kubeconfig --name ${CLUSTER_NAME}')
+                sh('helm install ${HELM_CHART} ${HELM_CHART}')
                 
             }
         }
