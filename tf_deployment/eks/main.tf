@@ -12,7 +12,7 @@ resource "aws_eks_cluster" "elliotteks" {
   }
 
   depends_on = [
-  aws_iam_role.eks-iam-role-,
+  aws_iam_role.eks-iam-role,
  ]
 }
 
