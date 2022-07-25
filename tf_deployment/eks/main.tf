@@ -46,6 +46,8 @@ resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly-EK
 }
 
 
+
+
 resource "aws_iam_role" "workernodes" {
   name = "eks-node-group"
  
