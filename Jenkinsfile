@@ -7,7 +7,6 @@ pipeline {
     string(name: 'HELM_CHART', defaultValue: 'superuber')
     string(name: 'CLUSTER_NAME', defaultValue: 'elliotteks')
     string(name: 'REGION', defaultValue: 'us-west-2')
-
   }
 
   	environment {
