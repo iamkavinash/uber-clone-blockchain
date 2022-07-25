@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eks-uber-bc
+  name: suber-uber-bc
 spec:
   replicas: 2
   selector:
     matchLabels:
       
-      si3mshady: eks-uber-bc
+      si3mshady: suber-uber-bc
     
   template:
     metadata:
       labels:
         
-        si3mshady: eks-uber-bc
+        si3mshady: suber-uber-bc
     spec:
       containers:
-      - name: eks-uber-bc
+      - name: suber-uber-bc
         image: si3mshady/blockchain-uber-clone  
         ports:
         - containerPort: 3000
@@ -26,13 +26,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata: 
-  name: eks-uber-bc
+  name: suber-uber-bc
 
 spec: 
   ports: 
     - port: 3000
-      targetPort: 3000    
+      targetPort: 3000     
     
   selector: 
-    si3mshady: eks-uber-bc
+    si3mshady: suber-uber-bc
   type: LoadBalancer
