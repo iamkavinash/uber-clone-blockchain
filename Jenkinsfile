@@ -8,7 +8,6 @@ pipeline {
     string(name: 'CLUSTER_NAME', defaultValue: 'elliotteks')
     string(name: 'REGION', defaultValue: 'us-west-2')
   }
-
   	environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
 	}
