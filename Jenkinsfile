@@ -36,7 +36,6 @@ pipeline {
                 sh('cd tf_deployment/ && terraform apply --auto-approve')
                 sh('aws eks update-kubeconfig --name ${CLUSTER_NAME} --region ${REGION}')
                 sh('helm install ${HELM_CHART} ${HELM_CHART}')
-                
             }
         }
     }
