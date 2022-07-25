@@ -6,9 +6,9 @@ module "elliott_sandbox_vpc" {
 }
 
 
-# module "rew_relic_monitoring" {
-#    source               = "./iam"
-# }
+module "rew_relic_monitoring" {
+   source               = "./iam"
+}
 
 module "eks" {
     source = "./eks"

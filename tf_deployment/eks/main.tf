@@ -18,7 +18,7 @@ resource "aws_eks_cluster" "elliotteks" {
 
 
 resource "aws_iam_role" "eks-iam-role" {
-  name = "eks-cluster-"
+  name = "EKS-cluster"
 
   assume_role_policy = <<POLICY
 {
