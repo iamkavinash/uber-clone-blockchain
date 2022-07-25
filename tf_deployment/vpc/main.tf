@@ -213,40 +213,40 @@ resource "aws_iam_group" "devops_admin_group" {
 
 
 
-resource "aws_iam_role" "eks-admin" {
-  name = "eks-admin"
+# resource "aws_iam_role" "eks-admin" {
+#   name = "eks-admin"
 
 
-  inline_policy {
-    name = "admin_inline_policy"
-   policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action   = ["*"]
-        Effect   = "Allow"
-        Resource = "*"
-      }
-    ]
-  })
-  }
+#   inline_policy {
+#     name = "admin_inline_policy"
+#    policy = jsonencode({
+#     Version = "2012-10-17"
+#     Statement = [
+#       {
+#         Action   = ["*"]
+#         Effect   = "Allow"
+#         Resource = "*"
+#       }
+#     ]
+#   })
+#   }
 
-  assume_role_policy = <<EOF
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "AWS": "*"
-      },
-      "Effect": "Allow",
-      "Sid": ""
-    }
-  ]
-}
-EOF
+#   assume_role_policy = <<EOF
+# {
+#   "Version": "2012-10-17",
+#   "Statement": [
+#     {
+#       "Action": "sts:AssumeRole",
+#       "Principal": {
+#         "AWS": "*"
+#       },
+#       "Effect": "Allow",
+#       "Sid": ""
+#     }
+#   ]
+# }
+# EOF
 
 
 
-}   
+# }   
