@@ -1,32 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: super-bc-uber
+  name: eluber
 spec:
   replicas: 2
   selector:
     matchLabels:
-      si3mshady: super-bc-uber
+      si3mshady: eluber
   template:
     metadata:
       labels:
-        si3mshady: super-bc-uber
+        si3mshady: eluber
     spec:
       containers:
-      - name: super-bc-uber
+      - name: eluber
         image: si3mshady/blockchain-uber-clone  
         ports:
         - containerPort: 3001
           hostPort: 3001
+
 --- 
 apiVersion: v1
 kind: Service
 metadata: 
-  name: super-bc-uber
+  name: eluber
+
 spec: 
   ports: 
     - port: 3001
-      targetPort: 3001
+      targetPort: 3001     
+    
   selector: 
-    si3mshady: super-bc-uber
+    si3mshady: eluber
   type: LoadBalancer
