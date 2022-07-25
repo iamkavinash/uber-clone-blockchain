@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Test with TF plan..'
+                echo 'Test with TF plan...'
                 sh('cd tf_deployment/ && terraform init && terraform plan')
             }
         }
