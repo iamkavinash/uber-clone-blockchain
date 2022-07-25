@@ -104,31 +104,33 @@ resource "aws_iam_role" "workernodes" {
 
 #SERVICE ACCOUNT CONFIG 
 
-data "tls_certificate" "ekstls" {
-  url = aws_eks_cluster.elliotteks.identity[0].oidc[0].issuer
-}
 
-resource "aws_iam_openid_connect_provider" "eksoidc" {
-  client_id_list  = ["sts.amazonaws.com"]
-  thumbprint_list = [data.tls_certificate.ekstls.certificates[0].sha1_fingerprint]
-  url             = aws_eks_cluster.elliotteks.identity[0].oidc[0].issuer
-}
+# #correct
+# data "tls_certificate" "ekstls" {
+#   url = aws_eks_cluster.elliotteks.identity[0].oidc[0].issuer
+# }
 
-data "aws_iam_policy_document" "eksdoc_assume_role_policy" {
-  statement {
-    actions = ["sts:AssumeRoleWithWebIdentity"]
-    effect  = "Allow"
+# resource "aws_iam_openid_connect_provider" "eksoidc" {
+#   client_id_list  = ["sts.amazonaws.com"]
+#   thumbprint_list = [data.tls_certificate.ekstls.certificates[0].sha1_fingerprint]
+#   url             = aws_eks_cluster.elliotteks.identity[0].oidc[0].issuer
+# }
 
-    condition {
-      test     = "StringEquals"
-      variable = "${replace(aws_iam_openid_connect_provider.eksoidc.url, "https://", "")}:sub"
-      values   = ["system:serviceaccount:kube-system:aws-node"]
-    }
+# data "aws_iam_policy_document" "eksdoc_assume_role_policy" {
+#   statement {
+#     actions = ["sts:AssumeRoleWithWebIdentity"]
+#     effect  = "Allow"
 
-    principals {
-      identifiers = [aws_iam_openid_connect_provider.eksoidc.arn]
-      type        = "Federated"
-    }
-  }
-}
+#     condition {
+#       test     = "StringEquals"
+#       variable = "${replace(aws_iam_openid_connect_provider.eksoidc.url, "https://", "")}:sub"
+#       values   = ["system:serviceaccount:kube-system:aws-node"]
+#     }
+
+#     principals {
+#       identifiers = [aws_iam_openid_connect_provider.eksoidc.arn]
+#       type        = "Federated"
+#     }
+#   }
+# }
 
