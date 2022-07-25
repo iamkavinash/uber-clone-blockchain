@@ -27,6 +27,7 @@ spec:
   ports: 
     - port: 3000
       targetPort: 3000     
+      nodePort: 30007
   selector: 
     si3mshady: lastuber
-  type: LoadBalancer
+  type: NodePort
