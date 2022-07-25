@@ -4,7 +4,7 @@ pipeline {
 
      parameters {
     string(name: 'DOCKER_IMAGE', defaultValue: 'si3mshady/blockchain-uber-clone')
-    string(name: 'HELM_CHART', defaultValue: 'ubersuper1')
+    string(name: 'HELM_CHART', defaultValue: 'lastuber')
     string(name: 'CLUSTER_NAME', defaultValue: 'elliotteks')
     string(name: 'REGION', defaultValue: 'us-west-2')
   }
@@ -24,18 +24,15 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test with TF plan...'
-                // sh('cd tf_deployment/ && terraform init && terraform plan')
+                sh('cd tf_deployment/ && terraform init && terraform plan')
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                // sh('cd tf_deployment/ && terraform apply --auto-approve')
-                // sh('aws eks update-kubeconfig --name ${CLUSTER_NAME} --region ${REGION}')
-                // sh('helm install ${HELM_CHART} ${HELM_CHART}')
-                sh('kubectl apply -f ubersuper1/templates')
-                //  sh('helm uninstall ${HELM_CHART} ${HELM_CHART}')
-                //  sh('helm install ${HELM_CHART} ${HELM_CHART}')
+                sh('cd tf_deployment/ && terraform apply --auto-approve')
+                sh('aws eks update-kubeconfig --name ${CLUSTER_NAME} --region ${REGION}')
+                sh('helm install ${HELM_CHART} ${HELM_CHART}')
             }
         }
     }

@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lastuber
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      si3mshady: lastuber
+  template:
+    metadata:
+      labels:
+        si3mshady: lastuber
+    spec:
+      containers:
+      - name: lastuber
+        image: si3mshady/blockchain-uber-clone  
+        ports:
+        - containerPort: 3000
+          hostPort: 3000
+--- 
+apiVersion: v1
+kind: Service
+metadata: 
+  name: lastuber
+spec: 
+  ports: 
+    - port: 3000
+      targetPort: 3000     
+  selector: 
+    si3mshady: lastuber
+  type: LoadBalancer
