@@ -30,7 +30,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh('cd tf_deployment/ && terraform destroy --auto-approve')
+                sh('cd tf_deployment/ && terraform apply --auto-approve')
                 sh('aws eks update-kubeconfig --name ${CLUSTER_NAME} --region ${REGION}')
                 sh('helm install ${HELM_CHART} ${HELM_CHART}')
             }
