@@ -49,7 +49,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly-EK
 
 
 resource "aws_iam_role" "workernodes" {
-  name = "eks-node-group-"
+  name = "eks-node-group"
  
   assume_role_policy = jsonencode({
    Statement = [{
@@ -85,7 +85,7 @@ resource "aws_iam_role" "workernodes" {
 
   resource "aws_eks_node_group" "worker-node-group" {
   cluster_name  = aws_eks_cluster.elliotteks.name
-  node_group_name = "elliotts-eks-workernodes-"
+  node_group_name = "elliotts-eks-workernodes"
   node_role_arn  = aws_iam_role.workernodes.arn
   subnet_ids   = [for id in var.public_eks_subnets: id.id]
   instance_types = ["t2.small"]
