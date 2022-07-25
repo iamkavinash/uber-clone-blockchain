@@ -11,9 +11,9 @@ resource "aws_eks_cluster" "elliotteks" {
     subnet_ids = [for id in var.public_eks_subnets: id.id]
   }
 
-  depends_on = [
-  aws_iam_role.eks-iam-role,
- ]
+#   depends_on = [
+#   aws_iam_role.eks-iam-role,
+#  ]
 }
 
 
