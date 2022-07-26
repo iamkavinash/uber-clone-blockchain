@@ -128,7 +128,6 @@ const createLocationCoordinatePromise = (locationName,locationType) => {
 
         const data = await response.json()
         
-      
 
         if (data.message = 'success') {
             switch(locationType) {
