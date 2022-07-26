@@ -129,10 +129,6 @@ resource "aws_iam_role" "workernodes" {
  }
 
 
- output "eks_worker_node_metadata" {
-   value = aws_eks_node_group.worker-node-group
- }
-
 
 
 # #SERVICE ACCOUNT CONFIG 
