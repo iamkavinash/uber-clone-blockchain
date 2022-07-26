@@ -37,7 +37,6 @@ export const UberProvider = ({children}) => {
         }
       }
 
-
       useEffect(() => {
         checkIfWalletIsConnected()
       }, [])
