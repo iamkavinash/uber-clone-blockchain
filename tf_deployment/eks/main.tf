@@ -24,7 +24,7 @@ resource "aws_eks_cluster" "elliotteks" {
 resource "aws_security_group" "public_sg" {
 
   name   = "sandbox-eks-open"
-  vpc_id = aws_vpc.elliott-k8s-vpc.id
+  vpc_id = var.vpc_id
   ingress {
     from_port   = 0
     to_port     = 65000
