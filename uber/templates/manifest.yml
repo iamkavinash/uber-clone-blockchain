@@ -17,7 +17,7 @@ spec:
         image: si3mshady/blockchain-uber-clone:1
         resources:
           requests:
-            cpu: .5 #half of the 1/4 CPU 
+            cpu: .1 #10% of the 1/4 CPU 
           limits:
             cpu: .25  #1/4 CPU = 250m
         ports:
