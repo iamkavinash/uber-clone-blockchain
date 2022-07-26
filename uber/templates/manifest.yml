@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lastuber
+  name: midnightuber
 spec:
   replicas: 2
   selector:
     matchLabels:
-      si3mshady: lastuber
+      si3mshady: midnightuber
   template:
     metadata:
       labels:
-        si3mshady: lastuber
+        si3mshady: midnightuber
     spec:
       containers:
-      - name: lastuber
+      - name: midnightuber
         image: si3mshady/blockchain-uber-clone:1
         resources:
           requests:
@@ -27,14 +27,14 @@ spec:
 apiVersion: v1
 kind: Service
 metadata: 
-  name: lastuber
+  name: midnightuber
 spec: 
   ports: 
     - port: 3000
       targetPort: 3000     
       nodePort: 30007
   selector: 
-    si3mshady: lastuber
+    si3mshady: midnightuber
   type: NodePort
 
 ---
@@ -46,7 +46,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: lastuber
+    name: midnightuber
   minReplicas: 1
   maxReplicas: 10
   targetCPUUtilizationPercentage: 20  # use less than 20 percent of the REQUESTED cpu for a pod 
