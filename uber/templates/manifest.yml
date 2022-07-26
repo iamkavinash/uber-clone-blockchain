@@ -20,7 +20,6 @@ spec:
             cpu: .5 #half of the 1/4 CPU 
           limits:
             cpu: .25  #1/4 CPU = 250m
-
         ports:
         - containerPort: 3000
           hostPort: 3000
