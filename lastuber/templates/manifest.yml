@@ -38,7 +38,6 @@ spec:
     si3mshady: lastuber
   type: NodePort
 
-
 ---
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler

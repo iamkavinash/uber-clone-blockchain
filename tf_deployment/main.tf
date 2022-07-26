@@ -18,7 +18,3 @@ module "eks" {
     eks_security_group = module.elliott_sandbox_vpc.elliot_public_sg
 }
 
-
-output "eks_node" {
-  module.
-}
