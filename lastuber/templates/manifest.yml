@@ -50,4 +50,4 @@ spec:
     name: lastuber
   minReplicas: 1
   maxReplicas: 10
-targetCPUUtilizationPercentage: 20   use less than 20 percent of the REQUESTED cpu for a pod
+  targetCPUUtilizationPercentage: 20   use less than 20 percent of the REQUESTED cpu for a pod
