@@ -15,6 +15,12 @@ spec:
       containers:
       - name: lastuber
         image: si3mshady/blockchain-uber-clone:1
+        resources:
+          requests:
+            cpu: .5 #half of the 1/4 CPU 
+          limits:
+            cpu: .25  #1/4 CPU = 250m
+
         ports:
         - containerPort: 3000
           hostPort: 3000
@@ -31,3 +37,18 @@ spec:
   selector: 
     si3mshady: lastuber
   type: NodePort
+
+
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: lastuber
+  minReplicas: 1
+  maxReplicas: 10
+targetCPUUtilizationPercentage: 20   use less than 20 percent of the REQUESTED cpu for a pod

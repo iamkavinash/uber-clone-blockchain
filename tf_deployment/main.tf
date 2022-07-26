@@ -17,3 +17,8 @@ module "eks" {
     vpc_id = module.elliott_sandbox_vpc.elliot_vpc_id
     eks_security_group = module.elliott_sandbox_vpc.elliot_public_sg
 }
+
+
+output "eks_node" {
+  module.
+}
