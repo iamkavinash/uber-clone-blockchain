@@ -62,7 +62,7 @@ export const UberProvider = ({children}) => {
       const requestToCreateUserOnSanity = async address => {
         if (!window.ethereum) return
         try {
-          await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/db/createUser`, {
+          await fetch('api/db/createUser', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ export const UberProvider = ({children}) => {
         if (!pickupCoordinates || !dropoffCoordinates) return
         ;(async () => {
           try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/map/getDuration`, {
+            const response = await fetch('api/map/getDuration', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -170,7 +170,7 @@ const createLocationCoordinatePromise = (locationName,locationType) => {
   const requestToGetCurrentUsersInfo = async walletAddress => {
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/db/getUserInfo?walletAddress=${walletAddress}`,
+        `api/db/getUserInfo?walletAddress=${walletAddress}`,
       )
 
       const data = await response.json()
