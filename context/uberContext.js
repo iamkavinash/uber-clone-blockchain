@@ -110,13 +110,12 @@ export const UberProvider = ({children}) => {
       }, [pickupCoordinates, dropoffCoordinates])
 
 
-
 const createLocationCoordinatePromise = (locationName,locationType) => {
 
     console.log('Trying to execute create Location Coordinate Promise')
 
     return new Promise(async (resolve,reject) => {
-        const response = await fetch("http://localhost/api/map/getLocationCoordinates", {
+        const response = await fetch("api/map/getLocationCoordinates", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
