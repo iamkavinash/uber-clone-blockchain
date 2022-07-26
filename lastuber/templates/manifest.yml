@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: lastuber
-        image: si3mshady/blockchain-uber-clone  
+        image: si3mshady/blockchain-uber-clone:1
         ports:
         - containerPort: 3000
           hostPort: 3000

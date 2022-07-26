@@ -3,7 +3,7 @@ pipeline {
     agent any
 
      parameters {
-    string(name: 'DOCKER_IMAGE', defaultValue: 'si3mshady/blockchain-uber-clone')
+    string(name: 'DOCKER_IMAGE', defaultValue: 'si3mshady/blockchain-uber-clone:1')
     string(name: 'HELM_CHART', defaultValue: 'lastuber')
     string(name: 'CLUSTER_NAME', defaultValue: 'elliotteks')
     string(name: 'REGION', defaultValue: 'us-west-2')
